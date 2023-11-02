@@ -1,0 +1,2 @@
+# ecommerce
+This project was carried out in Java 11, which works as the skeleton of an ecommerce, what I am looking for with this is to have a defined skeleton model to design web pages that contain: integration to the paid market, sending personalized emails, shopping cart, and good management of pages among themselves, using JAVA 11, spring framework, gradle, postgreSQL on the back side and HTML5, CSS3, bootstrap5, Vue.js3 and javascript
