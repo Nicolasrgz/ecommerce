@@ -2,11 +2,6 @@ package chacotek.esqueleto.ecommerce.dtos;
 
 import chacotek.esqueleto.ecommerce.models.Client;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.Email;
-
 public class ClientDTO {
 
     private Long id;
