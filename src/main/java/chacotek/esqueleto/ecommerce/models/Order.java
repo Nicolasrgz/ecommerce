@@ -2,6 +2,8 @@ package chacotek.esqueleto.ecommerce.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "orders")
@@ -16,6 +18,8 @@ public class Order {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "client")
     private Client client;
+    @OneToMany(mappedBy = "order",fetch = FetchType.EAGER)
+    private Set<OrderProduct> orderProducts = new HashSet<>();
 
     public Order() {
     }
@@ -30,6 +34,14 @@ public class Order {
 
     public Long getId() {
         return id;
+    }
+
+    public Set<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(Set<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
     public Client getClient() {
@@ -78,5 +90,10 @@ public class Order {
 
     public void setProductQuantity(Integer productQuantity) {
         this.productQuantity = productQuantity;
+    }
+
+    public void addOrderProduct(OrderProduct orderProduct){
+        orderProduct.setOrder(this);
+        orderProducts.add(orderProduct);
     }
 }

@@ -1,9 +1,8 @@
 package chacotek.esqueleto.ecommerce.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Product {
@@ -12,13 +11,14 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name, description, category;
-    private Short price;
-    private Integer stock;
+    private Integer stock, price;
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
+    private Set<OrderProduct>orderProducts = new HashSet<>();
 
     public Product() {
     }
 
-    public Product(String name, String description, String category, Short price, Integer stock) {
+    public Product(String name, String description, String category, Integer price, Integer stock) {
         this.name = name;
         this.description = description;
         this.category = category;
@@ -28,6 +28,14 @@ public class Product {
 
     public Long getId() {
         return id;
+    }
+
+    public Set<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+
+    public void setOrderProducts(Set<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
     public String getName() {
@@ -54,11 +62,11 @@ public class Product {
         this.category = category;
     }
 
-    public Short getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(Short price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -68,5 +76,10 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public void addOrderProduct(OrderProduct orderProduct){
+        orderProduct.setProduct(this);
+        orderProducts.add(orderProduct);
     }
 }

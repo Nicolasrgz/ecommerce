@@ -1,9 +1,6 @@
 package chacotek.esqueleto.ecommerce.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class OrderProduct {
@@ -12,6 +9,13 @@ public class OrderProduct {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Integer totalAmount, unitPrice, quantity;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "Orders")
+    private Order order;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "product")
+    private Product product;
 
     public OrderProduct() {
     }
@@ -24,6 +28,22 @@ public class OrderProduct {
 
     public Long getId() {
         return id;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public Integer getTotalAmount() {
