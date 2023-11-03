@@ -1,12 +1,10 @@
 package chacotek.esqueleto.ecommerce.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -15,6 +13,9 @@ public class Order {
     private String description, numberOrder, category;
     private LocalDate date;
     private Integer productQuantity;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client")
+    private Client client;
 
     public Order() {
     }
@@ -29,6 +30,14 @@ public class Order {
 
     public Long getId() {
         return id;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public String getDescription() {

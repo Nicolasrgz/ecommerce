@@ -1,10 +1,9 @@
 package chacotek.esqueleto.ecommerce.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Client {
@@ -15,6 +14,8 @@ public class Client {
     private String name, direction, password, phoneNumber;
     @Email
     private String email;
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private Set<Order> orders = new HashSet<>();
 
     public Client() {
     }
@@ -29,6 +30,14 @@ public class Client {
 
     public Long getId() {
         return id;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     public String getName() {
@@ -69,5 +78,10 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void addOrder(Order order){
+        order.setClient(this);
+        orders.add(order);
     }
 }
