@@ -28,14 +28,17 @@ public class Application {
 	@Bean
 	public CommandLineRunner initData(ClientRepository clientRepository, OrderRepository orderRepository, ProductRepository productRepository, OrderProductRepository orderProductRepository){
 		return (args) ->{
-			Client client = new Client("nombre", "direccion", passwordEncoder.encode("12345678"), "1234567890", "nombre@correo.com" );
+			Client admin = new Client("admin", "direction", passwordEncoder.encode("administration"), "1234567", "admin@gmail.com" );
+			clientRepository.save(admin);
+
+			Client client = new Client("name", "direction", passwordEncoder.encode("12345678"), "1234567890", "nombre@correo.com" );
 			clientRepository.save(client);
 
 			Order order = new Order("111","111","111", LocalDate.now(),10);
 			client.addOrder(order);
 			orderRepository.save(order);
 
-			Product product = new Product("nombre", "descripcion", "pepe", 111, 1);
+			Product product = new Product("name", "description", "pepe", 111, 1, "image" ,false);
 			productRepository.save(product);
 
 			OrderProduct orderProduct = new OrderProduct(1000, 100, 10);

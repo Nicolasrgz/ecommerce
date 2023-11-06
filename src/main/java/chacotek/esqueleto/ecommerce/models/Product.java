@@ -10,24 +10,43 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name, description, category;
+    private String name, description, category, img;
     private Integer stock, price;
+    private Boolean isActive;
     @OneToMany(mappedBy = "product", fetch = FetchType.EAGER)
     private Set<OrderProduct>orderProducts = new HashSet<>();
 
     public Product() {
     }
 
-    public Product(String name, String description, String category, Integer price, Integer stock) {
+    public Product(String name, String description, String category, Integer stock, Integer price, String img, Boolean isActive) {
         this.name = name;
         this.description = description;
         this.category = category;
-        this.price = price;
         this.stock = stock;
+        this.price = price;
+        this.img = img;
+        this.isActive = isActive;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     public Set<OrderProduct> getOrderProducts() {

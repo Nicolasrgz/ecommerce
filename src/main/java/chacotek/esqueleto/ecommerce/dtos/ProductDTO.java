@@ -4,8 +4,9 @@ import chacotek.esqueleto.ecommerce.models.Product;
 
 public class ProductDTO {
     private Long id;
-    private String name, description, category;
+    private String name, description, category, img;
     private Integer stock, price;
+    private Boolean isActive;
 
     public ProductDTO() {
     }
@@ -16,10 +17,20 @@ public class ProductDTO {
         this.category = product.getCategory();
         this.stock = product.getStock();
         this.price = product.getPrice();
+        this.img = product.getImg();
+        this.isActive = product.getActive();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public Boolean getActive() {
+        return isActive;
     }
 
     public String getName() {
