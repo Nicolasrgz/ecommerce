@@ -8,16 +8,19 @@ import chacotek.esqueleto.ecommerce.repositories.ClientRepository;
 import chacotek.esqueleto.ecommerce.repositories.OrderProductRepository;
 import chacotek.esqueleto.ecommerce.repositories.OrderRepository;
 import chacotek.esqueleto.ecommerce.repositories.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 
 @SpringBootApplication
 public class Application {
-
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
@@ -25,7 +28,7 @@ public class Application {
 	@Bean
 	public CommandLineRunner initData(ClientRepository clientRepository, OrderRepository orderRepository, ProductRepository productRepository, OrderProductRepository orderProductRepository){
 		return (args) ->{
-			Client client = new Client("nombre", "direccion", "12345678", "1234567890", "nombre@correo.com" );
+			Client client = new Client("nombre", "direccion", passwordEncoder.encode("12345678"), "1234567890", "nombre@correo.com" );
 			clientRepository.save(client);
 
 			Order order = new Order("111","111","111", LocalDate.now(),10);
