@@ -12,6 +12,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name, direction, password, phoneNumber;
+    private Boolean isActive;
     @Email
     private String email;
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
@@ -20,16 +21,25 @@ public class Client {
     public Client() {
     }
 
-    public Client(String name, String direction, String password, String phoneNumber, String email) {
+    public Client(String name, String direction, String password, String phoneNumber, String email, Boolean isActive) {
         this.name = name;
         this.direction = direction;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.isActive = isActive;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
     }
 
     public Set<Order> getOrders() {

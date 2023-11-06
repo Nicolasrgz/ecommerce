@@ -46,7 +46,7 @@ public class ClientController {
             return new ResponseEntity<>("The phone number field is empty or incorrect", HttpStatus.FORBIDDEN);
         }
 
-        Client client = new Client(clientDTO.getName(), clientDTO.getDirection(), passwordEncoder.encode(clientDTO.getPassword()), clientDTO.getPhoneNumber(), clientDTO.getEmail());
+        Client client = new Client(clientDTO.getName(), clientDTO.getDirection(), passwordEncoder.encode(clientDTO.getPassword()), clientDTO.getPhoneNumber(), clientDTO.getEmail(), clientDTO.getActive());
         clientRepository.save(client);
 
         return new ResponseEntity<>("the user has been created successfully", HttpStatus.CREATED);
@@ -87,5 +87,10 @@ public class ClientController {
         }catch (Exception e){
             return new ResponseEntity<>("There was an error setting the changes", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PutMapping("/deactivate/{id}/client")
+    public ResponseEntity<Object>deactivateClient(@PathVariable Long id, Authentication authentication){
+        return new ResponseEntity<>("There was an error setting the changes", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

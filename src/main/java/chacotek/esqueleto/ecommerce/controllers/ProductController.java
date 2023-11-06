@@ -94,6 +94,50 @@ public class ProductController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @PatchMapping("/product/{id}/modification")
+    public ResponseEntity<Object> modificationProducts(@PathVariable long id, @RequestBody ProductDTO modification, Authentication authentication){
+        Client admin = clientRepository.findByEmail(authentication.name());
+
+        if (admin == null) {
+            return new ResponseEntity<>("only an administrator can use this servlet", HttpStatus.BAD_REQUEST);
+        }
+
+        Optional<Product> productoOptional = productRepository.findById(id);
+        if (productoOptional.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Product producto = productoOptional.get();
+
+        if (modification.getName() == null || modification.getName().isBlank()) {
+            return new ResponseEntity<>("Product name is null or empty", HttpStatus.BAD_REQUEST);
+        }
+        if (modification.getStock() <= 0) {
+            return new ResponseEntity<>("Assign a stock quantity", HttpStatus.BAD_REQUEST);
+        }
+        if (modification.getDescription() == null || modification.getDescription().isBlank()) {
+            return new ResponseEntity<>("Define a product description", HttpStatus.BAD_REQUEST);
+        }
+        if (modification.getPrice() <= 0) {
+            return new ResponseEntity<>("Define a price for the product", HttpStatus.BAD_REQUEST);
+        }
+        if (modification.getCategory() == null || modification.getCategory().isBlank()) {
+            return new ResponseEntity<>("Define a brand for the product", HttpStatus.BAD_REQUEST);
+        }
+
+        try {
+            producto.setName(modification.getName());
+            producto.setCategory(modification.getCategory());
+            producto.setDescription(modification.getDescription());
+            producto.setStock(modification.getStock());
+            producto.setPrice(modification.getPrice());
+
+            productRepository.save(producto);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return new ResponseEntity<>("Product could not be modified", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 }

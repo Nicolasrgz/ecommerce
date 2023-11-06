@@ -19,7 +19,7 @@ public class ClientDTO {
 
     @NotBlank(message = "El número de teléfono no puede estar vacío")
     private String phoneNumber;
-
+    private Boolean isActive;
     @NotBlank(message = "El correo electrónico no puede estar vacío")
     @Email(message = "Debe ser una dirección de correo electrónico válida")
     private String email;
@@ -33,10 +33,15 @@ public class ClientDTO {
         this.password = client.getPassword();
         this.phoneNumber = client.getPhoneNumber();
         this.email = client.getEmail();
+        this.isActive = client.getActive();
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Boolean getActive() {
+        return isActive;
     }
 
     public String getName() {
