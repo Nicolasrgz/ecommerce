@@ -1,0 +1,546 @@
+.color1 {
+  color: #1a62b2;
+}
+
+.color2 {
+  color: #957fca;
+}
+
+.color3 {
+  color: #d89fdd;
+}
+
+.color4 {
+  color: #f8cbeb;
+}
+
+.color5 {
+  color: #f8eaed;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Pangolin&family=Red+Hat+Display&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #957fca;
+  box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 4px 5px 0px rgba(0, 0, 0, 0.75);
+
+  background-color: #957fca;
+  width: 100%;
+}
+
+body {
+  background-color: #dbe1f6;
+}
+
+.main {
+  min-height: 50vh;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+.article {
+  min-height: 50vh !important;
+}
+.inputBusqueda {
+  height: 2.5rem;
+  width: 30rem;
+  border: 1px solid #957fca;
+  background-color: #dbe1f6;
+}
+
+.img-header {
+  width: 8rem;
+  border-radius: 10rem;
+}
+
+.carro {
+  font-size: 2rem;
+  color: rgb(255, 254, 254);
+}
+.lupa {
+  color: rgb(255, 254, 254);
+}
+
+.ancor-carrito,
+.ancor-shop {
+  background-color: #6a5991;
+  padding: 0;
+  width: 3.5rem;
+  border-radius: 0.5rem;
+}
+
+.ancor-carrito:hover,
+.btn:hover {
+  background-color: #493e64;
+  color: white;
+  background-color: #493e64;
+}
+.lupa,
+.btn {
+  background-color: #957fca;
+}
+nav {
+  padding: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-family: "Pangolin", cursive;
+  color: rgb(255, 255, 255);
+  background-color: #957fca;
+  padding: 0.5rem;
+  border-radius: 20px;
+}
+/* ancors nav */
+button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #6a5991;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: "»";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 15px;
+}
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Card juguetes y farmacia */
+.card {
+  --font-color: #323232;
+  --bg-color: #957fca;
+  /*   #e0e0e0 */
+  width: 250px;
+  height: 320px;
+  border-radius: 20px;
+  background: var(--bg-color);
+  box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  display: flex;
+  flex-direction: column;
+  transition: 0.4s;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px 2px #5a5a5a;
+  --bg-color: #8572b3;
+}
+
+.card__img {
+  width: 245px;
+  height: 200px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: #957fca;
+}
+
+.card__descr-wrapper {
+  padding: 8px;
+  width: 250px;
+  height: 120px !important;
+  display: flex;
+  justify-content: end;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.card__title {
+  color: white;
+  text-align: center;
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.card__links {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+}
+
+.card__links .link {
+  color: var(--font-color);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.card__links .link:hover {
+  text-decoration: underline;
+}
+
+article div div > img {
+  width: 250px;
+  height: 200px;
+  padding: 1rem;
+  border-radius: 20px;
+  object-fit: cover;
+}
+/* CARROUSEL */
+.carousel-item img {
+  width: 100% !important;
+  height: 380px !important;
+  height: 25rem !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.carousel {
+  position: relative !important;
+  border-bottom: #704bc7 2px solid;
+  border-bottom: #704bc7 2px solid;
+}
+
+.logo-jugueteria {
+  margin-bottom: 1rem;
+}
+
+.bi-shop-window,
+.bi-plus {
+  color: rgb(250, 250, 250);
+}
+
+.card-precio {
+  color: white;
+  font-weight: 700;
+}
+
+footer {
+  background-color: #957fca;
+  padding: 1rem;
+  margin-top: 5rem;
+  color: white;
+}
+
+.articulo-disponibles {
+  position: absolute;
+  left: 3.7rem;
+  top: 0.1rem;
+  background-color: red;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.sinStock {
+  position: absolute;
+  left: 5.2rem;
+  top: 0.1rem;
+  background-color: rgb(5, 5, 5);
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+}
+
+.carousel-item img {
+  width: 100% !important;
+  height: 25rem !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.carousel {
+  position: relative !important;
+  border-bottom: #704bc7 2px solid;
+}
+
+.main1 {
+  min-height: 70vh;
+}
+
+.contenedor {
+  width: 100%;
+  margin: 0;
+}
+iframe {
+  width: 40rem;
+  height: 23rem;
+  border-radius: 15px;
+}
+.horarios {
+  width: 25rem;
+  height: 23rem;
+  font-weight: bolder;
+  padding: 2rem;
+  border-radius: 15px;
+  background-color: #d89fdd;
+}
+
+.Formulario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 40rem;
+  width: 40rem;
+  font-weight: bold;
+  padding: 2rem;
+  margin: 1rem;
+  background-color: #f8cbeb;
+  font-size: 18px;
+  border: 2px solid rgb(68, 4, 68);
+  border-radius: 20px;
+}
+
+.contenedor-formulario {
+  padding: 1rem;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.footer {
+  min-height: 5rem;
+  background-color: #957fca;
+  font-family: "Pangolin", cursive;
+  font-size: 1.5rem;
+  min-height: 10vh;
+  color: white;
+}
+.main1 {
+  min-height: 70vh;
+}
+.mensajefinal {
+  background-color: white;
+  text-align: center;
+  border-radius: 2rem;
+  width: 30rem;
+}
+
+.label {
+  margin-top: 0.5rem;
+}
+.input {
+  margin-top: 0.5rem;
+  border-radius: 10px;
+  padding-left: 1rem;
+  width: 30rem;
+}
+
+textarea {
+  margin-bottom: 2rem;
+  height: 10vh;
+  width: 100%;
+}
+
+.div-comprar-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.comprar-btn {
+  width: 10rem;
+  text-align: center;
+  padding: 17px 40px;
+  border-radius: 50px;
+  border: 0;
+  background-color: #957fca;
+  box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 15px;
+  transition: all 0.5s ease;
+}
+
+.comprar-btn:hover {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+.comprar-btn:active {
+  letter-spacing: 3px;
+  background-color: hsl(261deg 80% 48%);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.h3-no-hay-resultados {
+  font-weight: 600;
+  font-family: "Pangolin", cursive;
+  margin-top: 3rem;
+}
+
+.input {
+  width: 100%;
+}
+.main-carrito {
+  min-height: 47.8vh !important;
+}
+.h2-carrito {
+  font-weight: 600;
+  font-family: "Pangolin", cursive;
+  margin-top: 3rem;
+}
+.imagenes-carrito {
+  width: 300px !important;
+}
+
+#button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  background-color: #6a5991;
+  border: none;
+  color: #ffffff;
+  text-align: center !important;
+  font-size: 17px;
+  padding: 16px;
+  width: 1rem;
+  height: 0.5rem;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+#button > p {
+  margin: 0;
+}
+.btn-carrito {
+  text-decoration: none;
+  color: white;
+}
+/* MEDIA QUERIES */
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .img-header {
+    width: 8rem;
+  }
+  .carousel-item img {
+    height: 20rem !important;
+    width: 100%;
+  }
+  nav {
+    font-size: 1rem;
+    flex-direction: column;
+  }
+  .contactologo {
+    width: 20rem;
+  }
+  .main1 {
+    min-height: 65vh;
+  }
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+  textarea {
+    width: 15rem;
+  }
+  iframe {
+    width: 18rem;
+    height: 15rem;
+    align-items: center;
+  }
+  .mensajefinal {
+    width: 15rem;
+  }
+  .Formulario {
+    width: 18rem;
+    font-size: 14px;
+    padding: 1rem;
+  }
+  .horarios {
+    width: 18rem;
+    font-size: 12px;
+    padding: 0.5rem;
+    height: 18rem;
+  }
+
+  /* MEDIA QUERIES */
+  @media only screen and (min-width: 320px) and (max-width: 576px) {
+    .div-header,
+    nav {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-jugueteria > img {
+      width: 320px !important;
+    }
+    .logo-farmacia {
+      width: 320px !important;
+    }
+    footer {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-contacto {
+      width: 320px !important;
+    }
+    .contenedor-formulario,
+    .Formulario {
+      width: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-carrito {
+      width: 320px !important;
+    }
+    .div-logo-carrito {
+      display: flex;
+      justify-content: center;
+    }
+    .div-comprar-btn {
+      width: 320px;
+    }
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  footer {
+    font-size: 1.3rem;
+    width: 100%;
+    gap: 0.5rem;
+    min-height: 10vh;
+  }
+  header {
+    width: 100%;
+  }
+}
