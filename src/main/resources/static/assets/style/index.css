@@ -376,3 +376,7 @@ input[type="checkbox"] {
   filter: contrast(120%);
   object-fit: cover;
 }
+
+.parrafo{
+  font-size: 25px;
+}
