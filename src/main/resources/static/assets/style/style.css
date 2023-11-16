@@ -140,80 +140,7 @@ button:hover span:after {
   right: 0;
 }
 
-/* Card juguetes y farmacia */
-.card {
-  --font-color: #323232;
-  --bg-color: #957fca;
-  /*   #e0e0e0 */
-  width: 250px;
-  height: 320px;
-  border-radius: 20px;
-  background: var(--bg-color);
-  box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  display: flex;
-  flex-direction: column;
-  transition: 0.4s;
-  position: relative;
-  margin-right: 1rem;
-}
 
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 0px 10px 2px #5a5a5a;
-  --bg-color: #8572b3;
-}
-
-.card__img {
-  width: 245px;
-  height: 200px;
-  border-radius: 20px 20px 20px 20px;
-  background-color: #957fca;
-}
-
-.card__descr-wrapper {
-  padding: 8px;
-  width: 250px;
-  height: 120px !important;
-  display: flex;
-  justify-content: end;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
-.card__title {
-  color: white;
-  text-align: center;
-  font-weight: 900;
-  font-size: 15px;
-}
-
-.card__links {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-self: flex-end;
-}
-
-.card__links .link {
-  color: var(--font-color);
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.card__links .link:hover {
-  text-decoration: underline;
-}
-
-article div div > img {
-  width: 250px;
-  height: 200px;
-  padding: 1rem;
-  border-radius: 20px;
-  object-fit: cover;
-}
 /* CARROUSEL */
 .carousel-item img {
   width: 100% !important;
@@ -603,7 +530,7 @@ textarea {
   cursor: pointer;
 }
 
-button {
+.button-cards-pages {
   appearance: none;
   background-color: #FAFBFC;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -629,34 +556,34 @@ button {
   word-wrap: break-word;
  }
  
- button:hover {
+ .button-cards-pages:hover {
   background-color: #F3F4F6;
   text-decoration: none;
   transition-duration: 0.1s;
  }
  
- button:disabled {
+ .button-cards-pages:disabled {
   background-color: #FAFBFC;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
  }
  
- button:active {
+ .button-cards-pages:active {
   background-color: #EDEFF2;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
  }
  
- button:focus {
+ .button-cards-pages:focus {
   outline: 1px transparent;
  }
  
- button:before {
+ .button-cards-pages:before {
   display: none;
  }
  
- button:-webkit-details-marker {
+ .button-cards-pages:-webkit-details-marker {
   display: none;
  }
 
